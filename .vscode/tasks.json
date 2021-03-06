@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "docker build",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "${workspaceFolder}/.vscode/docker_build.sh",
+                "${relativeFileDirname}",
+                "${relativeFile}",
+                "'${fileExtname}'"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "ansible-playbook docker run",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "${workspaceFolder}/.vscode/docker_run.sh",
+                "${relativeFileDirname}",
+                "${fileExtname}",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ansible-playbook",
+            "type": "shell",
+            "command": "ansible-playbook",
+            "args": [
+                "${file}",
+                "\"$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )\"",
+                "${command:extension.commandvariable.selectedText}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

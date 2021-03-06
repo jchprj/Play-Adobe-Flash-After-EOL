@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  gather_facts: no
+    
+  tasks:
+
+  - tags: ping
+    debug: var=ansible_python_interpreter
+  - name: Get info on docker host
+    tags: ping
+    docker_host_info:
+      containers: yes
+      images: yes
+      verbose_output: yes
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+    register: result
+  - tags: ping
+    debug:
+      var: result.host_info
+
+  - name: play-adobe-flash-after-eol
+    tags: play-adobe-flash-after-eol
+    docker_container:
+      name: play-adobe-flash-after-eol
+      image: "{{ image }}"
+      state: started
+      exposed_ports:
+        - 8080
+        - 3390
+      ports:
+        - "8080:8080"
+        - "3390:3389"
+      volumes:
+        # - /home/abc/def:/flash
+      env:
+        STARTUP: firefox http://localhost/index.html
