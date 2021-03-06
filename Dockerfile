@@ -51,8 +51,8 @@ ADD https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_s
 ADD https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/fp_32.0.0.371_archive.zip/32_0_r0_371_debug%2Fflashplayer32_0r0_371_linux_debug.x86_64.tar.gz /tmp
 
 RUN ls -l /tmp && mkdir /player && \
-	tar -C /player -zxvf /tmp/flash_player_32_sa_linux.x86_64.tar.gz flashplayer && \
-	tar -C /player -zxvf /tmp/flash_player_32_sa_linux_debug.x86_64.tar.gz flashplayerdebugger
+	tar -C /player -zxvf /tmp/flash_player_sa_linux.x86_64.tar.gz flashplayer && \
+	tar -C /player -zxvf /tmp/flash_player_sa_linux_debug.x86_64.tar.gz flashplayerdebugger
 RUN \
 	tar -C / -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz usr && \
 	mkdir -p /usr/lib/mozilla/plugins && \
