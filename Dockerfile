@@ -48,12 +48,12 @@ ADD https://www.slimjetbrowser.com/chrome/lnx/chrome64_53.0.2785.116.deb /tmp
 ADD https://download-installer.cdn.mozilla.net/pub/firefox/releases/42.0/linux-x86_64/en-US/firefox-42.0.tar.bz2 /tmp
 ADD https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz /tmp
 ADD https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz /tmp
-ADD https://web.archive.org/web/20200618035158/https://fpdownload.macromedia.com/pub/flashplayer/installers/archive/fp_32.0.0.371_archive.zip /tmp
+ADD https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/fp_32.0.0.371_archive.zip/32_0_r0_371_debug%2Fflashplayer32_0r0_371_linux_debug.x86_64.tar.gz /tmp
 
 RUN ls -l /tmp && mkdir /player && \
 	tar -C /player -zxvf /tmp/flash_player_32_sa_linux.x86_64.tar.gz flashplayer && \
 	tar -C /player -zxvf /tmp/flash_player_32_sa_linux_debug.x86_64.tar.gz flashplayerdebugger
-RUN unzip -j -d /tmp /tmp/fp_32.0.0.371_archive.zip 32_0_r0_371_debug/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz && \
+RUN \
 	tar -C / -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz usr && \
 	mkdir -p /usr/lib/mozilla/plugins && \
 	tar -C /usr/lib/mozilla/plugins -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz libflashplayer.so
