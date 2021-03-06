@@ -32,11 +32,15 @@ ENV HOME=/config
 # COPY flashplayer32_0r0_371_linux_debug.x86_64.tar.gz /tmp
 
 RUN \
+	echo "**** download software ****" && \
+	apt-get update && \
+	apt-get install -qy --no-install-recommends wget && \
 	wget -O /tmp https://www.slimjetbrowser.com/chrome/lnx/chrome64_53.0.2785.116.deb && \
 	wget -O /tmp https://download-installer.cdn.mozilla.net/pub/firefox/releases/42.0/linux-x86_64/en-US/firefox-42.0.tar.bz2 && \
 	wget -O /tmp https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz && \
 	wget -O /tmp https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz && \
 	wget -O /tmp https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/fp_32.0.0.371_archive.zip/32_0_r0_371_debug%2Fflashplayer32_0r0_371_linux_debug.x86_64.tar.gz && \
+	echo "**** extract files ****" && \
 	ls -l /tmp && mkdir /player && \
 	tar -C /player -zxvf /tmp/flash_player_sa_linux.x86_64.tar.gz flashplayer && \
 	tar -C /player -zxvf /tmp/flash_player_sa_linux_debug.x86_64.tar.gz flashplayerdebugger && \
@@ -45,10 +49,8 @@ RUN \
 	tar -C /usr/lib/mozilla/plugins -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz libflashplayer.so && \
     tar -xf /tmp/firefox-42.0.tar.bz2 && \
 	echo "**** install deps ****" && \
-	apt-get update && \
 	apt-get install -qy --no-install-recommends \
 		x11-apps \
-		wget \
 		libcurl3 \
 		libgtk2.0-0 \
 		libdbus-glib-1.2 \
