@@ -37,14 +37,14 @@ Another way is to mount the `/startup` folder, and provide a different `start.sh
 
 ### HTTP server
 
-There is a light HTTP server running in the container and serve `/flash` folder. So just mount this folder could running any contents outside the container. 
+There is a light HTTP server running in the container and serve `/flash` folder. Just mount this folder could run any contents outside the container. 
 
 The purpose of the HTTP server is standalone Flash player disabled loading local content by default and hard to be set in advance using Docker, so a http server is running in the container to support open content in `http://localhost`
 
 
 ## Other
 
-If you want to compile `.swf` from source, another Docker I created years ago could be used, for example:
+If you want to compile `.swf` from source, another Docker image([jchprj/docker-flex-4.6-sdk-ant](https://hub.docker.com/r/jchprj/docker-flex-4.6-sdk-ant)) I created years ago could be used, for example:
 ```
 docker run -v ${PWD}:/flash -it --rm jchprj/docker-flex-4.6-sdk-ant mxmlc /flash/HelloWorld.as
 ```
