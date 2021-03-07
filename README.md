@@ -80,6 +80,9 @@ No time limitation, officially allow to use after EOL, so use the latest version
 
 ### Downloads for different versions
 
-* Chrome: https://www.slimjet.com/chrome/google-chrome-old-version.php
-* Firefox: https://ftp.mozilla.org/pub/firefox/releases/
+* Chrome: https://www.slimjet.com/chrome/google-chrome-old-version.php  
+Chrome does not offer official old version download according to [browser - How can I download an old version of Google Chrome - Super User](https://superuser.com/questions/1381356/how-can-i-download-an-old-version-of-google-chrome).
+* Firefox: https://ftp.mozilla.org/pub/firefox/releases/  
+This is the official Firefox old versions.
 * Flash Player: https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/
+Adobe does not offer official old version download([annoucement](https://www.adobe.com/products/flashplayer/end-of-life.html)), only leave the standalone player downloadable officially([link](https://www.adobe.com/support/flashplayer/debug_downloads.html))
