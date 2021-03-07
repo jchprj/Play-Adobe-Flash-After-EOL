@@ -6,6 +6,9 @@ The base image is the powerful [linuxserver/docker-baseimage-guacgui](https://gi
 ![Screenshot](screenshot.png)  
 Firefox running in Docker accessible in Chrome
 
+![Screenshot](screenshot2.png)  
+Standalone Flash player running in Docker accessible in Chrome
+
 ## Usage
 
 A simple command is:
