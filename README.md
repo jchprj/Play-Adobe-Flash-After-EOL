@@ -35,6 +35,9 @@ google-chrome --no-sandbox
 
 Another way is to mount the `/startup` folder, and provide a different `start.sh`, it will be executed at the beginning.
 
+WARNING: Don't use the `STARTUP` while mounting the `/startup` folder as the internal mechanism is write the value of `STARTUP` to `/startup/start.sh` which will override the outside file mounted to the folder. Until find a better way.
+
+
 ### HTTP server
 
 There is a light HTTP server running in the container and serve `/flash` folder. Just mount this folder could run any contents outside the container. 

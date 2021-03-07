@@ -48,6 +48,9 @@ RUN \
 	mkdir -p /usr/lib/mozilla/plugins && \
 	tar -C /usr/lib/mozilla/plugins -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz libflashplayer.so && \
     tar -xf /tmp/firefox-53.0.3.tar.bz2 && \
+	ln -s /firefox/firefox /usr/bin/firefox && \
+	ln -s /player/flashplayer /usr/bin/flashplayer && \
+	ln -s /player/flashplayerdebugger /usr/bin/flashplayerdebugger && \
 	echo "**** install deps ****" && \
 	apt-get install -qy --no-install-recommends \
 		x11-apps \
