@@ -26,7 +26,7 @@ Just expose 3389 port
 
 Use environment variable: `STARTUP`, the value is a whole command, for example:
 ```
-docker run -e "STARTUP=firefox https://localhost/index.html" -p 8080:8080 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
+docker run -e "STARTUP=firefox http://localhost/index.html" -p 8080:8080 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
 ```
 
 The value of `STARTUP` could be one of the following commands(if need open any URL by default, just add the URL to the end of the line):

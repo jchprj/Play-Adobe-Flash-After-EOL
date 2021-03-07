@@ -1,1 +1,1 @@
-docker run -e "STARTUP=firefox https://localhost" -p 8080:8080 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
+docker run -e "STARTUP=firefox http://localhost" -p 8080:8080 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
