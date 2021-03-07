@@ -26,7 +26,7 @@ ENV HOME=/config
 
 # add local files
 # COPY chrome64_53.0.2785.116.deb /tmp
-# COPY firefox-42.0.tar.bz2 /tmp
+# COPY firefox-53.0.3.tar.bz2 /tmp
 # COPY flash_player_sa_linux_debug.x86_64.tar.gz /tmp
 # COPY flash_player_sa_linux.x86_64.tar.gz /tmp
 # COPY flashplayer32_0r0_371_linux_debug.x86_64.tar.gz /tmp
@@ -36,7 +36,7 @@ RUN \
 	apt-get update && \
 	apt-get install -qy --no-install-recommends wget && \
 	wget -P /tmp https://www.slimjetbrowser.com/chrome/lnx/chrome64_53.0.2785.116.deb && \
-	wget -P /tmp https://download-installer.cdn.mozilla.net/pub/firefox/releases/42.0/linux-x86_64/en-US/firefox-42.0.tar.bz2 && \
+	wget -P /tmp https://ftp.mozilla.org/pub/firefox/releases/53.0.3/linux-x86_64/en-US/firefox-53.0.3.tar.bz2 && \
 	wget -P /tmp https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux_debug.x86_64.tar.gz && \
 	wget -P /tmp https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz && \
 	wget -O /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/fp_32.0.0.371_archive.zip/32_0_r0_371_debug%2Fflashplayer32_0r0_371_linux_debug.x86_64.tar.gz && \
@@ -47,11 +47,12 @@ RUN \
 	tar -C / -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz usr && \
 	mkdir -p /usr/lib/mozilla/plugins && \
 	tar -C /usr/lib/mozilla/plugins -zxvf /tmp/flashplayer32_0r0_371_linux_debug.x86_64.tar.gz libflashplayer.so && \
-    tar -xf /tmp/firefox-42.0.tar.bz2 && \
+    tar -xf /tmp/firefox-53.0.3.tar.bz2 && \
 	echo "**** install deps ****" && \
 	apt-get install -qy --no-install-recommends \
 		x11-apps \
 		libcurl3 \
+		libgtk-3-0 \
 		libgtk2.0-0 \
 		libdbus-glib-1.2 \
 		busybox \
@@ -62,6 +63,8 @@ RUN \
 	/tmp/* \
 	/var/lib/apt/lists/* \
 	/var/tmp/*
+# COPY firefox-53.0.3.tar.bz2 /tmp
+# RUN tar -xf /tmp/firefox-53.0.3.tar.bz2
 
 COPY /root /
 CMD ["sh", "/boot.sh"]

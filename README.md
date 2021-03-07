@@ -48,3 +48,32 @@ If you want to compile `.swf` from source, another Docker image([jchprj/docker-f
 ```
 docker run -v ${PWD}:/flash -it --rm jchprj/docker-flex-4.6-sdk-ant mxmlc /flash/HelloWorld.as
 ```
+
+
+## About versions
+
+### Chrome
+
+Chrome 64-bit 53.0.2785.116 is the latest version that have no EOL time limit. After this version, if run after EOL, will not allow to play Flash.
+
+The accompanied Flash Player version inside this Chrome is 23.0.0.162, unfortunately it will crush when I run some 3D Flash contents. So Firefox maybe a better choice.
+
+### Firefox
+
+Firefox 64-bit does not have such early time limit as Chrome, even version 84.0 allow play Flash, but 53.0.3 is the latest version I tested for some 3D contents, so I used this version in `master` branch. Will use other version in other branches.
+
+### Firefox used Flash Player
+
+32.0.0.371 is the latest version that has no time limit.
+
+### Standalone Flash Player
+No time limitation, officially allow to use after EOL, so use the latest version: 32.0.0.465(downloaded from Adobe).
+
+
+## References
+
+### Downloads for different versions
+
+* Chrome: https://www.slimjet.com/chrome/google-chrome-old-version.php
+* Firefox: https://ftp.mozilla.org/pub/firefox/releases/
+* Flash Player: https://archive.org/download/flashplayerarchive/pub/flashplayer/installers/archive/
