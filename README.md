@@ -1,6 +1,6 @@
 # Play Adobe Flash After EOL
 
-The base image is the powerful [linuxserver/docker-baseimage-guacgui](https://github.com/linuxserver/docker-baseimage-guacgui) which interested me to create a container for old Flash. Without the ability to access an inner browser or other GUI application directly in browser, it is not so attractive to do these work.
+The base image is the powerful [linuxserver/docker-baseimage-guacgui](https://github.com/linuxserver/docker-baseimage-guacgui) which which targets a Ubuntu desktop in Docker accessible in browser and interested me to create a container for old Flash. Without the ability to access an inner browser or other GUI application directly in browser, it is not so attractive to do these work.
 
 
 ![Screenshot](screenshot.png)  
@@ -16,11 +16,16 @@ A simple command is:
 docker run -p 8080:8080 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
 ```
 
+Then open http://localhost:8080 in your browser.
+
 There are some customizable settings:
 
 ### Remote desktop
 
-Just expose 3389 port
+Just expose 3389 port as well, if 3389 is already used, change it to whatever, for example, 3390:
+```
+docker run -p 8080:8080 -p 3390:3389 --name play-adobe-flash-after-eol jchprj/play-adobe-flash-after-eol
+```
 
 ### Run Chrome/Firefox/standalone Flash player
 
