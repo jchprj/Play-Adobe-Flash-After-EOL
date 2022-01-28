@@ -54,6 +54,7 @@ RUN \
 	echo "**** install deps ****" && \
 	apt-get install -qy --no-install-recommends \
 		x11-apps \
+		dbus-x11 \
 		libcurl3 \
 		libgtk-3-0 \
 		libgtk2.0-0 \
